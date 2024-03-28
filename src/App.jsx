@@ -1,10 +1,11 @@
 import Layout from "./Layout/Layout";
+import Books from "./Component/Books"
 
 function App() {
   return (
     <>
     <Layout>
-      <div></div>
+      <Books />
     </Layout>
     </>
   );
