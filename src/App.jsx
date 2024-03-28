@@ -1,7 +1,11 @@
+import Layout from "./Layout/Layout";
+
 function App() {
   return (
     <>
-      <h1>Book App</h1>
+    <Layout>
+      <div></div>
+    </Layout>
     </>
   );
 }
