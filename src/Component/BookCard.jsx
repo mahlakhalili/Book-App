@@ -1,9 +1,22 @@
-import React from "react"
-function BookCard({data : {title , author , image , country ,language , link , pages , year}}){
+import React, { useState } from "react"
+import { GoHeartFill } from "react-icons/go";
+
+import styles from "./BookCard.module.css"
+
+function BookCard({data  ,handleLikedList}){
+    const  {title , author , image , country ,language , link , pages , year} = data
+    const [like,setLike] = useState(false)
+
+    const likeHandler = () => { 
+        handleLikedList(data , like)
+        setLike(like => !like)  
+    }
+
+
     return(
-        <div>
+        <div className={styles.card}>
             <img src={`/src/assets/${image}`} alt={title} />
-            <div>
+            <div className={styles.info}>
                 <h3>{title}</h3>
                 <p>{author}</p>
                 <div>
@@ -11,7 +24,7 @@ function BookCard({data : {title , author , image , country ,language , link , p
                     <span> {pages} pages</span>
                 </div>
             </div>
-            <button>Like</button>
+            <button onClick={likeHandler}><GoHeartFill color = {like ? "red " : "#e0e0e0"} font-size="1.8rem" /></button>
         </div>
     )
 }
