@@ -13,11 +13,11 @@ function Books(){
     {
         console.log(liked)
         if(status){
-            const newlikedList = liked.filter((i) = i.id != book.id)
+            const newlikedList = liked.filter((i) => i.id != book.id)
             setLiked(newlikedList)
         }
         else{
-            setLiked(...liked,book)
+            setLiked([...liked,book])
             }
             
     }
