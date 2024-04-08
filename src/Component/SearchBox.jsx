@@ -9,7 +9,7 @@ function SearchBox({search , setSearch , searchHandler}){
                 type = "text" 
                 placeholder = "Search"
                 value = {search}
-                onChange={e => setSearch(e.target,value.toLowerCase().trim)}
+                onChange={e => setSearch(e.target.value.toLowerCase())}
                 onClick={searchHandler}
                 />
             <button><RiSearch2Line /></button>
