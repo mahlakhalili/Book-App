@@ -1,13 +1,15 @@
 import React, { useState } from "react"
 
-import {books} from "../constants/mockData";
+import {books as bookData} from "../constants/mockData";
 import BookCard from "./BookCard"
 import SideCard from "./SideCard";
-
 import styles from "./Books.module.css"
+import SearchBox from "./SearchBox";
 
 function Books(){
-    const [liked,setLiked] = useState([])
+    const [liked , setLiked] = useState([])
+    const [search , setSearch] = useState([])
+    const [books , setBooks] = useState([bookData])
 
     const handleLikedList = (book , status) => 
     {
@@ -21,9 +23,21 @@ function Books(){
             }
             
     }
+
+    const SerarchHandler = () => {
+        if(search){
+            const newBooks = bookData.filter(book => book.title.toLowerCase().includes(search))
+            setBooks(newBooks)
+        }
+
+        else{
+                setBooks(bookData)
+        }
+    }
         
     return(
-        
+            <>
+            <SearchBox search = {search}  setSearch = {setSearch} SerarchHandler = {SerarchHandler}/> 
             <div className = {styles.container}>
                 <div className = {styles.cards}>
                     <h4>FAVORITE</h4>
@@ -44,6 +58,7 @@ function Books(){
                             data={book}/>)}</div>)
             }
             </div>
+            </>
        
     )
 }
