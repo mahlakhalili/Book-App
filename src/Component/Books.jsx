@@ -9,7 +9,7 @@ import SearchBox from "./SearchBox";
 function Books(){
     const [liked , setLiked] = useState([])
     const [search , setSearch] = useState([])
-    const [books , setBooks] = useState([bookData])
+    const [books , setBooks] = useState(bookData)
 
     const handleLikedList = (book , status) => 
     {
