@@ -24,7 +24,7 @@ function Books(){
             
     }
 
-    const SerarchHandler = () => {
+    const serarchHandler = () => {
         if(search){
             const newBooks = bookData.filter(book => book.title.toLowerCase().includes(search))
             setBooks(newBooks)
@@ -37,7 +37,10 @@ function Books(){
         
     return(
             <>
-            <SearchBox search = {search}  setSearch = {setSearch} SerarchHandler = {SerarchHandler}/> 
+            <SearchBox 
+                search = {search}  
+                setSearch = {setSearch} 
+                serarchHandler = {serarchHandler}/> 
             <div className = {styles.container}>
                 <div className = {styles.cards}>
                     <h4>FAVORITE</h4>
