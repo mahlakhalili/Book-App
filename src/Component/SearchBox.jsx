@@ -11,9 +11,8 @@ function SearchBox({search , setSearch , searchHandler}){
                 placeholder = "Search"
                 value = {search}
                 onChange={e => setSearch(e.target.value.toLowerCase())}
-                onClick={searchHandler}
                 />
-            <button><RiSearch2Line /></button>
+            <button onClick={searchHandler}><RiSearch2Line /></button>
         </div>
     )
 }
